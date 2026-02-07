@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h2>StudySmart</h2>
+        <ul>
+            <li onclick="showSection('dashboard')">Dashboard</li>
+            <li onclick="showSection('subjects')">Subjects</li>
+            <li onclick="showSection('schedule')">Schedule</li>
+            <li onclick="showSection('tasks')">Tasks</li>
+            <li onclick="showSection('analytics')">Analytics</li>
+            <li onclick="showSection('settings')">Settings</li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <section id="dashboard" class="content-section">
+            <h2>Dashboard Overview</h2>
+            <div class="stats-grid">
+                <div class="card">Subjects: <span id="dash-sub-count">0</span></div>
+                <div class="card">Tasks Pending: <span id="dash-task-count">0</span></div>
+            </div>
+            <div class="card">
+                <h3>Today's Focus</h3>
+                <ul id="daily-summary"></ul>
+            </div>
+        </section>
+
+        <section id="subjects" class="content-section" style="display:none;">
+            <h2>Subject Management</h2>
+            <div class="card">
+                <input type="text" id="sub-name" placeholder="Subject Name">
+                <select id="sub-priority">
+                    <option value="High">High Priority</option>
+                    <option value="Medium">Medium Priority</option>
+                    <option value="Low">Low Priority</option>
+                </select>
+                <button onclick="addSubject()">Add Subject</button>
+            </div>
+            <div id="subject-list"></div>
+        </section>
+
+        <section id="schedule" class="content-section" style="display:none;">
+            <h2>Daily Schedule</h2>
+            <div class="card">
+                <input type="time" id="sched-time">
+                <select id="sched-sub-list"></select>
+                <button onclick="addSchedule()">Assign Time</button>
+            </div>
+            <div id="schedule-display"></div>
+        </section>
+
+        <section id="tasks" class="content-section" style="display:none;">
+            <h2>Tasks & Deadlines</h2>
+            <div class="card">
+                <input type="text" id="task-desc" placeholder="Assignment/Exam">
+                <input type="date" id="task-date">
+                <button onclick="addTask()">Set Deadline</button>
+            </div>
+            <div id="task-display"></div>
+        </section>
+
+        <section id="analytics" class="content-section" style="display:none;">
+            <h2>Progress Analytics</h2>
+            <div class="card">
+                <p>Completion Rate: <span id="completion-rate">0</span>%</p>
+                <div class="progress-bar-container">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="settings" class="content-section" style="display:none;">
+            <h2>Settings</h2>
+            <button onclick="toggleTheme()">Toggle Dark Mode</button>
+            <button onclick="resetData()" style="background:#e74c3c;">Reset All Data</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
