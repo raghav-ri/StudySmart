@@ -58,6 +58,3 @@ No external libraries or frameworks are required (No NPM, No React).
 Developer: Raghav
 
 Email: raghavissa701@gmail.com
-GitHub
-
-LinkedIn
