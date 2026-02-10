@@ -121,6 +121,14 @@ function resetData() {
         saveData();
     }
 }
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    
+    // Save the preference to localStorage
+    const isDark = body.classList.contains('dark-mode');
+    localStorage.setItem('themePreference', isDark ? 'dark' : 'light');
+}
 
 // Initialization
 window.onload = saveData;
